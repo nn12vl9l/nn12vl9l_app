@@ -21,8 +21,7 @@ class CreateRecipisTable extends Migration
             $table->text('seasoning');
             $table->text('recipi');
             $table->string('img_path')->nullable();
-            $table->DATETIME('create');
-            $table->DATETIME('update');
+            $table->text('comment');
             $table->timestamps();
         });
     }

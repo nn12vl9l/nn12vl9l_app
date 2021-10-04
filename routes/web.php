@@ -15,6 +15,9 @@ use App\Models\Recipi;
 |
 */
 
+Route::get('/', [RecipiController::class, 'index'])
+    ->name('root');
+    
 Route::resource('recipis', RecipiController::class);
 
 
