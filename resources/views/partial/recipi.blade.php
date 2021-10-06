@@ -9,8 +9,7 @@
             </h3>
         </div>
         <div>
-            <div>{{ $recipi->pr_short }}</div>
-            <div>{{ $recipi->opentime }}</div>
+            <div>{{ $recipi->comment }}</div>
         </div>
     </div>
 </div>

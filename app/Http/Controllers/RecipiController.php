@@ -25,7 +25,7 @@ class RecipiController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipis.create');
     }
 
     /**
@@ -36,7 +36,17 @@ class RecipiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $recipi = new Recipi;
+
+        $recipi->name = $request->name;
+        $recipi->category_id = $request->category_id;
+        $recipi->meterial = $request->meterial;
+        $recipi->seasoning = $request->seasoning;
+
+        $recipi->save();
+
+        return redirect('/recipis');
+
     }
 
     /**
@@ -45,8 +55,10 @@ class RecipiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipi $recipi)
+    public function show($id)
     {
+        $recipi = Recipi::find($id);
+
         return view('recipis.show', compact('recipi'));
     }
 
@@ -58,7 +70,9 @@ class RecipiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recipi = Recipi::find($id);
+
+        return view('recipi.edit', compact('recipi'));
     }
 
     /**

@@ -19,7 +19,7 @@ class RecipiSeeder extends Seeder
                 'name' => '秋刀魚の味噌煮',
                 'category_id' => 3,
                 'meterial' => "秋刀魚:2匹\n生姜:少々",
-                'seasoning' => "酒:大さじ2\n 醤油:大さじ2\n 味噌:大さじ3\n みりん:大さじ2",
+                'seasoning' => "酒:大さじ2\n醤油:大さじ2\n味噌:大さじ3\nみりん:大さじ2",
                 'recipi' => "1.秋刀魚は頭、尾を切リ3等分にします。\n2.酒・醤油・味噌・みりん・生姜を入れ沸騰したら秋刀魚を入れます。\n3.蓋を取り全体的に絡めて完成です。",
                 'img_path' => 'https://img.cpcdn.com/recipes/6959177/m/4f3bb26d1a97ef9ea4df86f32918c881?u=14753809&p=1632647307',
                 'comment' => '食欲の秋に欠かせない1品です。魚料理苦手な私でも美味しくできました！',

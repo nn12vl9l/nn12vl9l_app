@@ -1,15 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('title', '詳細画面')
 @section('content')
-@include('partial.recipi')
+    @include('partial.recipi')
     <table class="table-bordered mb-5 mt-3">
         <colgroup span="1" style="width:140px;background-color:#efefef;"></colgroup>
         <tbody>
             <tr>
                 <th>料理名</th>
-                <td>
-                    <p>{{ $recipi->name }}</p>
-                </td>
+                <td>{{ $recipi->name }}</td>
             </tr>
             <tr>
                 <th>カテゴリー</th>
@@ -33,5 +31,10 @@
             </tr>
         </tbody>
     </table>
-    <a href="{{ route('recipis.index')}}">戻る</a>
+    <p>
+        <a href="{{ route('recipis.create') }}">編集</a>
+    </p>
+    <p>
+        <a href="{{ route('recipis.index') }}">戻る</a>
+    </p>
 @endsection
