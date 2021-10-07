@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Recipi;
 use Illuminate\Http\Request;
+use App\Http\Requests\RecipiRequest;
 
 class RecipiController extends Controller
 {
@@ -15,6 +17,7 @@ class RecipiController extends Controller
     public function index()
     {
         $recipis = Recipi::all();
+
         return view('recipis.index', compact('recipis'));
     }
 
@@ -25,7 +28,9 @@ class RecipiController extends Controller
      */
     public function create()
     {
-        return view('recipis.create');
+        $categories = Category::all();
+
+        return view('recipis.create', compact('categories'));
     }
 
     /**
@@ -34,7 +39,7 @@ class RecipiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RecipiRequest $request)
     {
         $recipi = new Recipi;
 
@@ -42,11 +47,13 @@ class RecipiController extends Controller
         $recipi->category_id = $request->category_id;
         $recipi->meterial = $request->meterial;
         $recipi->seasoning = $request->seasoning;
+        $recipi->recipi = $request->recipi;
+        $recipi->img_path = $request->img_path;
+        $recipi->comment = $request->comment;
 
         $recipi->save();
 
-        return redirect('/recipis');
-
+        return redirect()->route('recipis.index');
     }
 
     /**
@@ -71,8 +78,9 @@ class RecipiController extends Controller
     public function edit($id)
     {
         $recipi = Recipi::find($id);
+        $categories = Category::all();
 
-        return view('recipi.edit', compact('recipi'));
+        return view('recipis.edit', compact('recipi', 'categories'));
     }
 
     /**
@@ -82,9 +90,21 @@ class RecipiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RecipiRequest $request, $id)
     {
-        //
+        $recipi = Recipi::find($id);
+
+        $recipi->name = $request->name;
+        $recipi->category_id = $request->category_id;
+        $recipi->meterial = $request->meterial;
+        $recipi->seasoning = $request->seasoning;
+        $recipi->recipi = $request->recipi;
+        $recipi->img_path = $request->img_path;
+        $recipi->comment = $request->comment;
+
+        $recipi->save();
+
+        return redirect('/recipis');
     }
 
     /**
@@ -95,6 +115,9 @@ class RecipiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recipi = Recipi::find($id);
+        $recipi->delete();
+
+        return redirect('/recipis');
     }
 }

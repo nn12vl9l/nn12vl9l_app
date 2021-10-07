@@ -11,30 +11,36 @@
             </tr>
             <tr>
                 <th>カテゴリー</th>
-                <td>{{ $recipi->category_id }}</td>
+                <td>{{ $recipi->category->name }}</td>
             </tr>
             <tr>
                 <th>材料</th>
-                <td>{{ $recipi->meterial }}</td>
+                <td>{!! nl2br(e($recipi->meterial)) !!}</td>
             </tr>
             <tr>
                 <th>調味料</th>
-                <td>{{ $recipi->seasoning }}</td>
+                <td>{!! nl2br(e($recipi->seasoning)) !!}</td>
             </tr>
             <tr>
                 <th>レシピ</th>
-                <td>{{ $recipi->recipi }}</td>
+                <td>{!! nl2br(e($recipi->recipi)) !!}</td>
             </tr>
             <tr>
                 <th>コメント</th>
-                <td>{{ $recipi->comment }}</td>
+                <td>{!! nl2br(e($recipi->comment)) !!}</td>
             </tr>
         </tbody>
     </table>
     <p>
-        <a href="{{ route('recipis.create') }}">編集</a>
+        <a href="/recipis/{{ $recipi->id }}/edit" class="btn btn-outline-primary">編集</a>
     </p>
     <p>
-        <a href="{{ route('recipis.index') }}">戻る</a>
+        <a href="{{ route('recipis.index') }}" class="btn btn-outline-success">戻る</a>
     </p>
+    <input type="submit" value="削除する" class="btn btn-outline-secondary" onclick="if(!confirm('本当に削除しますか？')){return false}" form="delete-form">
+    <form action="/recipis/{{ $recipi->id }}" method="post" id='delete-form'>
+        @csrf
+        @method('DELETE')
+    </form>
+
 @endsection

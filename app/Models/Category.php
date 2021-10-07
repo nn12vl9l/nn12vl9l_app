@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Recipi extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function category()
+    public function recipis()
     {
-        return $this->belongsTo(\App\Models\Category::class);
+        return $this->hasMany(\App\Models\Recipi::class);
     }
+
 }
