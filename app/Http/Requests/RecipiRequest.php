@@ -25,10 +25,10 @@ class RecipiRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'meterial' => 'required|text|max:2000',
-            'seasoning' => 'required|text|max:2000',
-            'recipi' => 'required|text|max:2000',
-            'comment' => 'required|text|max:2000',
+            'meterial' => 'required|string|max:2000',
+            'seasoning' => 'required|string|max:2000',
+            'recipi' => 'required|string|max:2000',
+            'comment' => 'required|string|max:2000',
         ];
     }
 }

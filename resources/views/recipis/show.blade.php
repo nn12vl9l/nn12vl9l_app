@@ -37,7 +37,8 @@
     <p>
         <a href="{{ route('recipis.index') }}" class="btn btn-outline-success">戻る</a>
     </p>
-    <input type="submit" value="削除する" class="btn btn-outline-secondary" onclick="if(!confirm('本当に削除しますか？')){return false}" form="delete-form">
+    <input type="submit" value="削除する" class="btn btn-outline-secondary" onclick="if(!confirm('本当に削除しますか？')){return false}"
+        form="delete-form">
     <form action="/recipis/{{ $recipi->id }}" method="post" id='delete-form'>
         @csrf
         @method('DELETE')

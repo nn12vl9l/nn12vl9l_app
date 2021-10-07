@@ -10,7 +10,7 @@
                 <a class="nav-link" href="{{ route('recipis.index') }}">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('recipis.create') }}">Post<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('recipis.create') }}">新規レシピ投稿<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
